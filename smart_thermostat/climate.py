@@ -501,7 +501,7 @@ class SmartThermostat(ClimateDevice, RestoreEntity):
             elif self.control_output > 0:
                 await self.pwm_switch(self.pwm * self.control_output / self.maxOut, self.pwm * (self.maxOut - self.control_output) / self.maxOut, time.time() - self.time_changed)
             elif self.control_output < 0:
-                await self.pwm_switch(self.pwm * self.control_output / self.minOut, self.pwm * self.minOut / self.control_outpu, time.time() - self.time_changedt)
+                await self.pwm_switch(self.pwm * self.control_output / self.minOut, self.pwm * self.minOut / self.control_output, time.time() - self.time_changed)
             else:
                 if self._active:
                     _LOGGER.info("Turning off heater %s", self.heater_entity_id)
