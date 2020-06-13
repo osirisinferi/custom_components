@@ -175,7 +175,7 @@ class SmartThermostat(ClimateDevice, RestoreEntity):
         self.time_changed = time.time()
         if self.autotune != "none":
             self.pidAutotune = pid_controller.PIDAutotune(self._target_temp, self.difference,
-            self._keep_alive.seconds, self._keep_alive.seconds, self.minOut, self.maxOut,
+            self._keep_alive.seconds, self._keep_alive.seconds*88, self.minOut, self.maxOut,
             noiseband, time.time)
             _LOGGER.warning("Autotune will run with the next Setpoint Value you set."
             "changes, submited after doesn't have any effekt until it's finished")
